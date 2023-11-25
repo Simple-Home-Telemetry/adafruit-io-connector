@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: adafruit-io
+spec:
+  containers:
+  - name: adafruit-io-connector
+    image: ghcr.io/simple-home-telemetry/adafruit-io-connector:latest
+    env:
+    - name: ADAFRUIT_IO_USER
+      valueFrom:
+      
+      secretKeyRef:
+        name: adafruitIO
+        key: adafruitIOuser  
+
+    - name: ADAFRUIT_IO_KEY
+      valueFrom:
+        secretKeyRef:
+          name: adafruitIO
+          key: adafruitIOtoken
+
+    - name: MQTT_BROKER
+    value: "broker.hivemq.com"
+    
+
+  restartPolicy: OnFailure
