@@ -6,6 +6,10 @@ authors = ["Vasil Ivanov <ivanovvasil99@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+paho-mqtt = "^1.6.1"
+adafruit-io = "^2.7.0"
+pylint = "^3.0.2"
+requests = "^2.31.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -13,3 +17,7 @@ pytest = "^5.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+adafruit-connector = "adafruit_connector.connector:main"
+
